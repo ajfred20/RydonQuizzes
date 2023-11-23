@@ -164,10 +164,12 @@ const quizData = [
   ];
     
   
+
   let currentQuestionIndex = 0;
   let score = 0;
   let consecutiveCorrectAnswers = 0;
   let timer;
+  let currentLevel = 1;
   
   const quizContainer = document.getElementById("quiz-container");
   const questionElement = document.getElementById("question");
@@ -175,6 +177,7 @@ const quizData = [
   const feedbackElement = document.getElementById("feedback");
   const nextBtn = document.getElementById("next-btn");
   const timerElement = document.getElementById("timer");
+  const levelElement = document.getElementById("level");
   
   function startQuiz() {
     showQuestion();
@@ -193,6 +196,7 @@ const quizData = [
       choicesElement.appendChild(choiceBtn);
     });
   
+    levelElement.textContent = `Level: ${currentLevel}`;
     startTimer(); // Start the timer when a new question is displayed
   }
   
@@ -206,18 +210,11 @@ const quizData = [
   
       if (timeLimit <= 0) {
         stopTimer();
-        showNextQuestionAutomatically();
+        showNextQuestion();
       } else {
         timerElement.textContent = `Time Remaining: ${timeLimit}s`; // Update the displayed time
       }
     }, 1000);
-  }
-  
-  function showNextQuestionAutomatically() {
-    feedbackElement.textContent = "Time's up! Moving to the next question.";
-    setTimeout(() => {
-      nextQuestion();
-    }, 2000); // Change the delay as needed (here, it waits for 2 seconds)
   }
   
   function stopTimer() {
@@ -234,8 +231,12 @@ const quizData = [
       // Check for consecutive correct answers
       if (consecutiveCorrectAnswers === 5) {
         showPopup("🔥 You are on fire!", "red");
+        currentLevel = 2;
+        levelElement.textContent = `Level: ${currentLevel}`;
       } else if (consecutiveCorrectAnswers === 10) {
         showPopup("⭐️ You are a star!", "yellow");
+        currentLevel = 3;
+        levelElement.textContent = `Level: ${currentLevel}`;
       }
   
       feedbackElement.textContent = "Correct!";
@@ -291,8 +292,10 @@ const quizData = [
   
   function endQuiz() {
     quizContainer.innerHTML = `<h2>Quiz Completed!</h2>
-    <p>Your score is ${score} out of ${quizData.length}.</p>`;
+    <p>Your score is ${score} out of ${quizData.length}.</p>
+    <p>Your final level is ${currentLevel}.</p>`;
   }
   
   // Call startQuiz to initiate the quiz
   startQuiz();
+  
