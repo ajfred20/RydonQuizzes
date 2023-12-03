@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap">
+  <link rel="stylesheet" href="styles.css">
+  <title>Rydon QuizRealm</title>
+</head>
+<body>
+ <!-- Background Music -->
+ <audio id="background-music" autoplay>
+  <source src="Audio/meditation-breeze-145529.mp3" type="audio/mp3">
+  <source src="Audio/into-the-darkness-cello-version-long-154335.mp3" type="audio/mp3">
+  <source src="Audio/valley-of-hope-ambient-meditation-study-sleep-music-115453.mp3" type="audio/mp3">
+  <source src="Audio/into-the-darkness-long-choir-slowed-154334.mp3" type="audio/mp3">
+</audio>
+  <div id="quiz-container">
+    <h1 id="level">Level: 1</h1>
+    <div id="timer"></div>
+    <div id="question"></div>
+    <div id="choices"></div>
+    <div id="feedback"></div>
+    <button id="next-btn" onclick="nextQuestion()">Next</button>
+</div>
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,21 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap">
-  <link rel="stylesheet" href="styles.css">
-  <title>Interactive Quiz Game</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap">
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <title>Rydon QuizRealm</title>
 </head>
 <body>
-  <div id="quiz-container">
-    <h1 id="level">Level: 1</h1>
-    <div id="timer"></div>
-    <div id="question"></div>
-    <div id="choices"></div>
-    <div id="feedback"></div>
-    <button id="next-btn" onclick="nextQuestion()">Next</button>
-  </div>
-  <script src="app.js"></script>
+    <div id="main-container" class="quiz-container">
+        <h2 id="welcome-message"></h2>
+        <p>Challenge your knowledge with our interactive quiz. Click the button below to get started!</p>
+        <button onclick="location.href='quiz.html'">Start Quiz</button>
+    </div>
+
+    <script src="app.js"></script>
+    <script>
+        // Typed.js initialization
+        var options = {
+            strings: ["Welcome to Rydon QuizRealm!"],
+            typeSpeed: 50,
+            showCursor: false,
+        };
+
+        var typed = new Typed("#welcome-message", options);
+    </script>
 </body>
 </html>

@@ -220,7 +220,24 @@ const quizData = [
   function stopTimer() {
     clearInterval(timer);
   }
-  
+
+  window.onload = function () {
+    const backgroundMusic = document.getElementById("background-music");
+
+    function startBackgroundMusic() {
+        // Set the volume to 50%
+        backgroundMusic.volume = 0.5;
+
+        // Play the background music
+        backgroundMusic.play().catch(error => {
+            console.error("Failed to play background music:", error);
+        });
+    }
+
+    // Your existing code
+    // ...
+};
+
   function checkAnswer(choice) {
     const currentQuestion = quizData[currentQuestionIndex];
   
